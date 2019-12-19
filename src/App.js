@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import 'normalize.css';
 import './App.css';
+import { CardPreview } from './components/CardPreview';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header>
+        <h1>
+          Study<span className="titleHighlight">Deck</span>
+        </h1>
+        <h2>Retention Through Repetition</h2>
       </header>
+      <main>
+        <h3>Your Cards</h3>
+        <div className="gridContainer">
+          <CardPreview definition="quack" term="What does the duck say?" />
+          <CardPreview definition="woof" term="What does the dog say?" />
+          <CardPreview definition="moo" term="What does the cow say?" />
+        </div>
+      </main>
     </div>
   );
 }
