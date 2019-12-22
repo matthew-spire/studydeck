@@ -74,14 +74,14 @@
 
 - Flashcards are not very useful
   - No corresponding definitions
-    - Give each card a corresponding definition prop, e.g. ```definition="quick"```, which will come before the prop term
+    - Give each card a corresponding definition prop, e.g. ```definition="quack"```, which will come before the prop term
     - Prop is not yet being handled by the component, i.e. CardPreview.js
       - First test to see if the component is receiving the prop by replacing the term with the definition 
   - No way to flip them over
     - Need a way to swap between the front of the card and the back of the card
     - The way we allow a component to remember information about itself in React is through component state
     - Before the return statement add ```React.useState(true)``` and this will return two values which will be destructured off of an array
-      - We are going to get our value, i.e. the initial value is the true that we are passiong into useState, and as that changes over time we need an identifier to hold that value, which will be called isFront (i.e. the front of the card) and is the component state
+      - We are going to get our value, i.e. the initial value is the true that we are passing into useState, and as that changes over time we need an identifier to hold that value, which will be called isFront (i.e. the front of the card) and is the component state
         - Used to determine whether we show the term or the definition
         - State value controls whether we see the term or the definition &rarr; need a way to control
       - The second item in the array that gets returned from useState is a state updater function for the particular value, which will be called setIsFront
