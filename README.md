@@ -80,7 +80,25 @@
   - No way to flip them over
     - Need a way to swap between the front of the card and the back of the card
     - The way we allow a component to remember information about itself in React is through component state
-    - Before the return statement add ```React.useState(true)``` and this will return two values which will be destructured 
+    - Before the return statement add ```React.useState(true)``` and this will return two values which will be destructured off of an array
+      - We are going to get our value, i.e. the initial value is the true that we are passiong into useState, and as that changes over time we need an identifier to hold that value, which will be called isFront (i.e. the front of the card) and is the component state
+        - Used to determine whether we show the term or the definition
+        - State value controls whether we see the term or the definition &rarr; need a way to control
+      - The second item in the array that gets returned from useState is a state updater function for the particular value, which will be called setIsFront
+    - Create a new function called ```handleCardFlip() {}```
+      - This is the function that will be called when we click the "Show Back" button
+      - Use ```setIsFront(false)``` which will allow us to go from the front of the card to the back of the card
+      - Need to attach the function to the button in order to be able to use it
+        - Done using an onClick handler attached to the button
+        - Clicking the button will only flip the card over from front to back, not from back to front
+          - Want the ```handleCardFlip``` function to toggle between ```isFront(true)``` and ```isFront(false)```
+          - The state updater function that we get back from useState will also take a callback rather than just a value &rarr; get the current value from this piece of state and return the new value by returning the negated value of the current state value
+            - Done for each component individually because each component has its own state
+        - Clean up the button
+          - If you are on the Term side, then the button should read 'Show Back', whereas if you are on the Definition side, then the button should read 'Show Front'
+- Slightly different styling if you are on the Definition side
+  - Instead of just using ```className="tile"``` we will use a JavaScript expression and back ticks for string interpolation
+  - Want to toggle back class on and off based on the value of isFront, which we can do using a ternary operator
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
